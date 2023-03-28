@@ -6,7 +6,14 @@ $(function () {
   $(".saveBtn").on("click", function () {
     //save user info
     
-    console.log("Clank");
+    function saveEvent(event) {
+      const button = $(event.target);
+      const timeBlock = button.parents(".time-block");
+      const timeBlockHour = timeBlock.attr("id");
+      const eventDescription = timeBlock.children(".description").val();
+  
+      localStorage.setItem(timeBlockHour, eventDescription);
+    }
 });
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
